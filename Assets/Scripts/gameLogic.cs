@@ -12,7 +12,7 @@ public class gameLogic : MonoBehaviour
     public pipeSpawnerScript spawner;
 
     public int gameLevel;
-    public int moveSpeed = 5;
+    public int moveSpeed = 7;
 
     private void Start()
     {
@@ -27,10 +27,10 @@ public class gameLogic : MonoBehaviour
 
         if (gameLevel != 0)
         {
-            if(gameLevel % 5 == 0)
+            if(gameLevel % 3 == 0)
                 moveSpeed++;
             else
-                spawner.spawnRate -= 0.1;
+                spawner.spawnRate -= 0.2;
             
             Debug.Log("moveSpeed: " + moveSpeed);
             Debug.Log("spawnRate: " + spawner.spawnRate);
