@@ -12,7 +12,9 @@ public class gameLogic : MonoBehaviour
     public pipeSpawnerScript spawner;
 
     public int gameLevel;
-    public int moveSpeed = 8;
+    public int moveSpeed;
+    public double spawnRate;
+    public float deadZone = -5;
 
     private void Start()
     {
@@ -27,13 +29,14 @@ public class gameLogic : MonoBehaviour
 
         if (gameLevel != 0)
         {
-            if(gameLevel % 3 == 0)
-                moveSpeed++;
-            else
-                spawner.spawnRate -= 0.2;
-            
+            if (gameLevel % 3 == 0)
+            {
+                moveSpeed += 2;
+                spawnRate -= 0.1;
+            }
+
             Debug.Log("moveSpeed: " + moveSpeed);
-            Debug.Log("spawnRate: " + spawner.spawnRate);
+            Debug.Log("spawnRate: " + spawnRate);
         }
     }
 

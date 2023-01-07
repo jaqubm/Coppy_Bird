@@ -6,9 +6,7 @@ public class pipeMovement : MonoBehaviour
 {
     public coppyBird_Movement bird;
     public gameLogic logic;
-    
-    public float deadZone = -50;
-    
+
     void Start()
     {
         bird = GameObject.FindGameObjectWithTag("Player").GetComponent<coppyBird_Movement>();
@@ -18,9 +16,9 @@ public class pipeMovement : MonoBehaviour
     void Update()
     {
         if(bird.birdIsAlive)
-               transform.position += (Vector3.left * logic.moveSpeed) * Time.deltaTime;
+               transform.position += (Vector3.left * (logic.moveSpeed / 10)) * Time.deltaTime;
 
-        if (transform.position.x < deadZone)
+        if (transform.position.x < logic.deadZone)
             Destroy(gameObject);
     }
 }

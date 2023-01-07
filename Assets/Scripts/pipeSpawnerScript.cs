@@ -6,15 +6,18 @@ public class pipeSpawnerScript : MonoBehaviour
 {
     public GameObject pipe;
     public coppyBird_Movement bird;
+    public gameLogic logic;
 
     public float maxHeight;
-
-    public double spawnRate = 2;
-    private float timer = 0;
+    
+    private float timer;
     
     void Start()
     {
+        timer = 0;
+        
         bird = GameObject.FindGameObjectWithTag("Player").GetComponent<coppyBird_Movement>();
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<gameLogic>();
 
         spawnPipe();
     }
@@ -23,7 +26,7 @@ public class pipeSpawnerScript : MonoBehaviour
     {
         if (bird.birdIsAlive)
         {
-            if (timer < spawnRate)
+            if (timer < logic.spawnRate)
                 timer += Time.deltaTime;
             else
             {
