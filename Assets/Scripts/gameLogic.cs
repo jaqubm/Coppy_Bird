@@ -12,7 +12,7 @@ public class gameLogic : MonoBehaviour
     public pipeSpawnerScript spawner;
 
     public int gameLevel;
-    public int moveSpeed = 7;
+    public int moveSpeed = 8;
 
     private void Start()
     {
