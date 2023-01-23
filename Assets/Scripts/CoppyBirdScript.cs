@@ -7,7 +7,7 @@ public class CoppyBirdScript : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     
-    public bool jumpFunc;
+    public bool jump;
     public float jumpPower;
 
     private void Start()
@@ -18,15 +18,15 @@ public class CoppyBirdScript : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
-            jumpFunc = true;
+            jump = true;
     }
 
     private void FixedUpdate()
     {
-        if (jumpFunc)
+        if (jump)
         {
             rb2d.velocity = Vector2.up * jumpPower;
-            jumpFunc = false;
+            jump = false;
         }
     }
 }
